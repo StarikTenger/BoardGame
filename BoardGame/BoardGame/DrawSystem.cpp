@@ -14,7 +14,9 @@
 DrawSystem::DrawSystem(){
 	window = new sf::RenderWindow(sf::VideoMode(540, 540), "Tic Tac Toe Advanced", sf::Style::Titlebar | sf::Style::Close);
 	loadTextures();
-	
+	sf::Image icon;
+	icon.loadFromFile("textures/icon.png");
+	window->setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 }
 
 DrawSystem::~DrawSystem(){}

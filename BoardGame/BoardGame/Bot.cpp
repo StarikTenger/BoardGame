@@ -7,6 +7,10 @@ std::pair<int, int> Bot::step(Board board) {
 	auto arr = board.getPossibleSteps();
 	std::pair<int, int> best = { -1, -1 };
 	int vMax = -100;
+
+	if (board.stepNumber % 10 == 0)
+		limit++, std::cout << "q";
+
 	for (auto s : arr) {
 		auto b1 = board;
 		b1.step(s);

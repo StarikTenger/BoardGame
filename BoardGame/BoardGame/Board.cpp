@@ -1,5 +1,5 @@
 #include "Board.h"
-
+#include <iostream>
 Board::Board() {
 	fields = std::vector<std::vector<std::vector<std::vector<int>>>>(size);
 	for (auto& a : fields) {

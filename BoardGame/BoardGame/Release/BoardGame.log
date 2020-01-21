@@ -1,40 +1,6 @@
-﻿  DrawSystem.cpp
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(25,50): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(25,50): warning C4244:         with
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(25,50): warning C4244:         [
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(25,50): warning C4244:             T=float
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(25,50): warning C4244:         ]
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(25,47): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(25,47): warning C4244:         with
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(25,47): warning C4244:         [
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(25,47): warning C4244:             T=float
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(25,47): warning C4244:         ]
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(43,71): warning C4244: 'argument': conversion from 'const _Ty' to 'T', possible loss of data
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(43,71): warning C4244:         with
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(43,71): warning C4244:         [
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(43,71): warning C4244:             _Ty=double
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(43,71): warning C4244:         ]
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(43,71): warning C4244:         and
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(43,71): warning C4244:         [
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(43,71): warning C4244:             T=float
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(43,71): warning C4244:         ]
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(43,55): warning C4244: 'argument': conversion from 'const _Ty' to 'T', possible loss of data
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(43,55): warning C4244:         with
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(43,55): warning C4244:         [
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(43,55): warning C4244:             _Ty=double
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(43,55): warning C4244:         ]
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(43,55): warning C4244:         and
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(43,55): warning C4244:         [
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(43,55): warning C4244:             T=float
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(43,55): warning C4244:         ]
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(47,11): warning C4244: 'initializing': conversion from '_Ty' to 'int', possible loss of data
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(47,11): warning C4244:         with
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(47,11): warning C4244:         [
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(47,11): warning C4244:             _Ty=double
-C:\Users\ilyin\GitHub\BoardGame\BoardGame\BoardGame\DrawSystem.cpp(47,11): warning C4244:         ]
-  Generating code
-  1 of 769 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+﻿  Generating code
+  0 of 769 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   BoardGame.vcxproj -> C:\Users\ilyin\GitHub\BoardGame\BoardGame\Release\BoardGame.exe
