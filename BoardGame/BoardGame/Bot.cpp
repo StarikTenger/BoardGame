@@ -3,18 +3,23 @@
 #include <iostream>
 #include <algorithm>
 
+
+
 std::pair<int, int> Bot::step(Board board) {
 	auto arr = board.getPossibleSteps();
 	std::pair<int, int> best = { -1, -1 };
-	int vMax = -100;
+	int vMax = -INF;
 
-	if (board.stepNumber % 10 == 0)
-		limit++, std::cout << "q";
+	if (board.stepNumber % 8 == 0)
+		limit += 1, std::cout << "q";
+	for (int i = 0; i < arr.size(); i++) {
+		std::swap(arr[i], arr[random::intRandom(0, arr.size() - 1)]);
+	}
 
 	for (auto s : arr) {
 		auto b1 = board;
 		b1.step(s);
-		int v = value(b1, limit, -100, 100);
+		int v = value(b1, limit, -INF, INF);
 		std::cout << v << " ";
 		if (v > vMax) {
 			vMax = v;
@@ -33,22 +38,18 @@ int Bot::value(Board board, int iteration, int alpha, int beta) {
 	auto arr = board.getPossibleSteps();
 	if (iteration == 0 || !arr.size())
 		return value(board);
-	int vMin = 100;
-	int vMax = -100;
-	for (int i = 0; i < arr.size(); i++) {
-		std::swap(arr[i], arr[random::intRandom(0, arr.size() - 1)]);
-	}
+	int vMin = INF;
+	int vMax = -INF;
 	for (auto s : arr) {
 		auto b1 = board;
 		b1.step(s);
-		int v = value(b1, iteration - 1, alpha, beta);
+		int v = value(b1, iteration - 1, vMin, vMax);
 		vMin = std::min(vMin, v);
 		vMax = std::max(vMax, v);
-		if (iteration % 2 != limit % 2)
-			beta = std::min(v, beta);
-		else
-			alpha = std::max(v, beta);
-		if (beta < alpha)
+		
+		if (iteration % 2 == limit % 2 && v < alpha)
+			break;
+		if (iteration % 2 != limit % 2 && v > beta)
 			break;
 	}
 	if (iteration % 2 == limit % 2)
@@ -68,20 +69,20 @@ int Bot::value(Board board) {
 
 					if (x == 1) {
 						if (field[x][y] == field[x - 1][y] && field[x][y] == field[x + 1][y]) {
-							v += field[x][y];
+							v += field[x][y] *coefficients[0];
 						}
 					}
 					if (y == 1) {
 						if (field[x][y] == field[x][y - 1] && field[x][y] == field[x][y + 1]) {
-							v += field[x][y];
+							v += field[x][y] * coefficients[0];
 						}
 					}
 					if (x == 1 && y == 1) {
 						if (field[x][y] == field[x - 1][y - 1] && field[x][y] == field[x + 1][y + 1]) {
-							v += field[x][y];
+							v += field[x][y] * coefficients[1];
 						}
 						if (field[x][y] == field[x - 1][y + 1] && field[x][y] == field[x + 1][y - 1]) {
-							v += field[x][y];
+							v += field[x][y] * coefficients[1];
 						}
 					}
 
@@ -90,5 +91,5 @@ int Bot::value(Board board) {
 		}
 	}
 
-	return v;
+	return v*type;
 }

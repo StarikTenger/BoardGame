@@ -63,6 +63,7 @@ void Control::step() {
 		}
 
 		if (board.activePlayer == -1) {
+			robot.type = 1;
 			auto s = bot();
 			drawSys.pos = {s.first + board.pos.first * board.size, s.second + board.pos.second*board.size };
 			board.step(s);

@@ -32,6 +32,7 @@ public:
 
 	Board board;
 	Bot robot;
+	Bot robot1;
 
 	//time
 	int dt = 20;
