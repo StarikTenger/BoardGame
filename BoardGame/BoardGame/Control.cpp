@@ -64,6 +64,7 @@ void Control::step() {
 
 		if (board.activePlayer == -1) {
 			auto s = bot();
+			drawSys.pos = {s.first + board.pos.first * board.size, s.second + board.pos.second*board.size };
 			board.step(s);
 		}
 
@@ -73,8 +74,5 @@ void Control::step() {
 }
 
 std::pair<int, int> Control::bot() {
-	auto arr = board.getPossibleSteps();
-	if (!arr.size())
-		return { 1, 1 };
-	return arr[random::intRandom(0, arr.size() - 1)];
+	return robot.step(board);
 }

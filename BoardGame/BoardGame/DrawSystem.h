@@ -15,6 +15,8 @@ public:
 	double w, h;
 	double blockSize = 1;
 
+	std::pair<int, int> pos = {-1, -1};
+
 
 	void draw(Board board);
 	void drawScene();
@@ -33,7 +35,8 @@ public:
 	void image(std::string name, double x, double y, double width, double height, double angle, double d);
 	void text(std::string text, double x, double y, int size, Color color);
 	//objects
-	
+	void glowingLine(double x, double y, double size, double angle, Color color);
+
 	//load
 	std::map<std::string, sf::Texture*> textures;
 	void loadTexture(std::string name, std::string path);

@@ -14,4 +14,5 @@ void DrawSystem::loadTextures() {
 
 	loadTexture("cross", "textures/cross.png");
 	loadTexture("null", "textures/null.png");
+	loadTexture("rect", "textures/rect.png");
 }
