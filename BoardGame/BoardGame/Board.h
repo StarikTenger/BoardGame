@@ -4,9 +4,10 @@
 
 class Board {
 public:
-	std::vector<std::vector<std::vector<std::vector<int>>>> fields;
+	std::vector<std::vector<std::vector<std::vector<short int>>>> fields;
 
 	std::pair<int, int> pos = {1, 1};
+	std::pair<int, int> lastStep = {-1, -1};
 
 	int size = 3;
 	int activePlayer = 1;

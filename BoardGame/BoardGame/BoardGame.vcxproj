@@ -70,12 +70,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\Users\ilyin\GitHub\libraries\SFML-2.4.2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\ilyin\GitHub\libraries\SFML-2.4.2\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\ilyin\GitHub\libraries\SFML-2.5.1\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\ilyin\GitHub\libraries\SFML-2.5.1\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\Users\ilyin\GitHub\libraries\SFML-2.4.2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\ilyin\GitHub\libraries\SFML-2.4.2\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\ilyin\GitHub\libraries\SFML-2.5.1\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\ilyin\GitHub\libraries\SFML-2.5.1\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -162,7 +162,16 @@
     <ClInclude Include="keys.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="random.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Vector2d.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="BoardGame.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon1.ico" />
+    <Image Include="textures\icon.ico" />
+    <Image Include="textures\icon.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

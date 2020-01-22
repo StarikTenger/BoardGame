@@ -2,6 +2,7 @@
 #include <ctime>
 #include <algorithm>
 #include <fstream>
+#include <deque>
 #include <SFML/Graphics.hpp>
 
 #include "keys.h"
@@ -28,11 +29,14 @@ public:
 	   
 
 	std::vector<bool> keys = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
+	std::vector<bool> keysPrev = keys;
 	std::vector<std::vector<int> > keyMatches;
 
 	Board board;
 	Bot robot;
-	Bot robot1;
+	
+
+	std::deque<Board> steps;
 
 	//time
 	int dt = 20;

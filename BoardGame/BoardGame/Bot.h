@@ -7,10 +7,11 @@
 
 class Bot {
 public:
-	int limit = 3;
+	int limit = 6;
 	int type = 1;
-	
-	std::vector<int> coefficients = { 10, 13 };
+	int counter = 0;
+
+	std::vector<int> coefficients = { 10, 11 };
 
 	Bot() {};
 	std::pair<int, int> step(Board board);

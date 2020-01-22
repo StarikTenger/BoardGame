@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <sstream>
 
 Control::Control() {
 	for (int i = 0; i < 100; i++) {
@@ -21,6 +22,9 @@ Control::Control() {
 
 		}
 	}
+	steps.push_back(board);
+
+	
 }
 
 Control::~Control() {
@@ -50,27 +54,41 @@ void Control::step() {
 		drawSys.mouse = mouse;
 		
 
-		if (mouse.state && !mousePrev.state) {
+		if (keys[ESCAPE] && !keysPrev[ESCAPE] && steps.size() > 1) {
+			board = steps.back();
+			drawSys.pos = board.lastStep;
+			steps.pop_back();
+		}
+
+		if(board.size){
 			std::pair<int, int> pos = { mouse.pos.x, mouse.pos.y };
 			int size = (int)drawSys.h / board.size;
 			if (pos.first / size == board.pos.first && pos.second / size == board.pos.second) {
-				pos.first %= (int)drawSys.w / board.size;
-				pos.second %= (int)drawSys.h / board.size;
-				pos.first /= (int)drawSys.w / board.size / board.size;
-				pos.second /= (int)drawSys.h / board.size / board.size;
-				board.step(pos);
+				if (mouse.state && !mousePrev.state) {
+					pos.first %= (int)drawSys.w / board.size;
+					pos.second %= (int)drawSys.h / board.size;
+					pos.first /= (int)drawSys.w / board.size / board.size;
+					pos.second /= (int)drawSys.h / board.size / board.size;
+					steps.push_back(board);
+					board.step(pos);
+				}
 			}
 		}
-
-		if (board.activePlayer == -1) {
-			robot.type = 1;
-			auto s = bot();
-			drawSys.pos = {s.first + board.pos.first * board.size, s.second + board.pos.second*board.size };
-			board.step(s);
-		}
+			
 
 		drawSys.draw(board);
-		drawSys.window->display();		
+		drawSys.window->display();
+		
+
+		if (board.activePlayer == -1) {
+			drawSys.setCursor(sf::Cursor::Wait);
+			robot.type = 1;
+			auto s = bot();
+			board.lastStep = { s.first + board.pos.first * board.size, s.second + board.pos.second * board.size };
+			drawSys.pos = board.lastStep;
+			board.step(s);
+			drawSys.setCursor(sf::Cursor::Arrow);
+		}	
 	}
 }
 

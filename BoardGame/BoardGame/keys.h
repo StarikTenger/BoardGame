@@ -164,30 +164,6 @@ inline Commands getKey(std::string s) {
 		return C;
 	if (s == "V")
 		return V;
-	if (s == "MOVE_FORWARD")
-		return MOVE_FORWARD;
-	if (s == "MOVE_BACKWARD")
-		return MOVE_BACKWARD;
-	if (s == "MOVE_LEFT")
-		return MOVE_LEFT;
-	if (s == "MOVE_RIGHT")
-		return MOVE_RIGHT;
-	if (s == "TURN_LEFT")
-		return TURN_LEFT;
-	if (s == "TURN_RIGHT")
-		return TURN_RIGHT;
-	if (s == "SHOOT")
-		return SHOOT;
-	if (s == "ZOOM_IN")
-		return ZOOM_IN;
-	if (s == "ZOOM_OUT")
-		return ZOOM_OUT;
-	if (s == "STABILIZE_ROTATION")
-		return STABILIZE_ROTATION;
-	if (s == "RESTART")
-		return RESTART;
-	if (s == "EXIT")
-		return EXIT;
 	return NONE;
 }
 

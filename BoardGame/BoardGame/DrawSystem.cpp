@@ -17,6 +17,8 @@ DrawSystem::DrawSystem(){
 	sf::Image icon;
 	icon.loadFromFile("textures/icon.png");
 	window->setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
+	w = window->getSize().x;
+	h = window->getSize().y;
 }
 
 DrawSystem::~DrawSystem(){}

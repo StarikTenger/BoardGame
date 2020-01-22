@@ -49,6 +49,12 @@ Color DrawSystem::fromHSV(double H, double S, double V) {
 	return color;
 }
 
+void DrawSystem::setCursor(sf::Cursor::Type type) {
+	sf::Cursor cursor;
+	if (cursor.loadFromSystem(type))
+		window->setMouseCursor(cursor);
+}
+
 void DrawSystem::fillRect(double x, double y, double width, double height, Color color) {
 	sf::RectangleShape rectangle;
 	rectangle.setOrigin(width / 2, height / 2);

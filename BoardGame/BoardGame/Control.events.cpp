@@ -5,6 +5,7 @@ void Control::events() {
 	
 	drawSys.window->setKeyRepeatEnabled(false);
 	mousePrev = mouse;
+	keysPrev = keys;
 	sf::Event event;
 	while (drawSys.window->pollEvent(event))
 	{

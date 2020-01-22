@@ -21,6 +21,7 @@ public:
 	void draw(Board board);
 	void drawScene();
 	void drawInterface();
+	void setCursor(sf::Cursor::Type type);
 	sf::Font font;
 	
 //private:
