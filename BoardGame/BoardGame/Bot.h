@@ -11,7 +11,7 @@ public:
 	int type = 1;
 	int counter = 0;
 
-	std::vector<int> coefficients = { 10, 11 };
+	std::vector<int> coefficients = { 10, 10 , 10 , 1 , 1 , 1 };
 
 	Bot() {};
 	std::pair<int, int> step(Board board);

@@ -88,7 +88,17 @@ void Control::step() {
 			drawSys.pos = board.lastStep;
 			board.step(s);
 			drawSys.setCursor(sf::Cursor::Arrow);
-		}	
+		}
+		/*if (board.activePlayer == 1) {
+			drawSys.setCursor(sf::Cursor::Wait);
+			robot.type = -1;
+			robot.coefficients = { 10, 10, 10, 0, 0, 0 };
+			auto s = bot();
+			board.lastStep = { s.first + board.pos.first * board.size, s.second + board.pos.second * board.size };
+			drawSys.pos = board.lastStep;
+			board.step(s);
+			drawSys.setCursor(sf::Cursor::Arrow);
+		}*/
 	}
 }
 

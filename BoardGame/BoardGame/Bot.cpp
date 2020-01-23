@@ -28,7 +28,9 @@ std::pair<int, int> Bot::step(Board board) {
 		return { 1, 1 };
 	if (best.first == -1)
 		return arr.back();
-	std::cout << "\n";
+	std::cout  << " | " << limit << " " << counter << "\n";
+	if (counter < 3000)
+		limit++;
 	counter = 0;
 	return best;
 }
@@ -66,6 +68,15 @@ int Bot::value(Board board) {
 	int n = board.size;
 
 	counter++;
+	
+	/*************************************
+	COEF 0 for border lines
+	COEF 1 for middle lines
+	COEF 2 for diagonal lines
+	COEF 3 for border lines (unfinished)
+	COEF 4 for middle lines (unfinished)
+	COEF 5 for diagonal lines (unfinished)
+	*************************************/
 
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
@@ -73,22 +84,60 @@ int Bot::value(Board board) {
 				for (int y = 0; y < n; y++) {
 					const auto& field = board.fields[i][j];
 
+					// horizontal
 					if (x == 1) {
+						// finished
 						if (field[x][y] == field[x - 1][y] && field[x][y] == field[x + 1][y]) {
-							v += field[x][y] *coefficients[0];
+							if(y == 1)
+								v += field[x][y] * coefficients[1];
+							else
+								v += field[x][y] * coefficients[0];
+						}
+						// unfinished
+						int sum = field[x - 1][y] + field[x][y] + field[x + 1][y];
+						if (abs(sum)  == 2) {
+							if (y == 1)
+								v += sum / 2 * coefficients[4];
+							else
+								v += sum / 2 * coefficients[3];
 						}
 					}
+					// vertical
 					if (y == 1) {
+						// finished
 						if (field[x][y] == field[x][y - 1] && field[x][y] == field[x][y + 1]) {
-							v += field[x][y] * coefficients[0];
+							if (x == 1)
+								v += field[x][y] * coefficients[1];
+							else
+								v += field[x][y] * coefficients[0];
+						}
+						// unfinished
+						int sum = field[x][y - 1] + field[x][y] + field[x][y + 1];
+						if (abs(sum) == 2) {
+							if (y == 1)
+								v += sum / 2 * coefficients[4];
+							else
+								v += sum / 2 * coefficients[3];
 						}
 					}
+					// diagonal
 					if (x == 1 && y == 1) {
+						// finished
 						if (field[x][y] == field[x - 1][y - 1] && field[x][y] == field[x + 1][y + 1]) {
-							v += field[x][y] * coefficients[1];
+							v += field[x][y] * coefficients[2];
 						}
 						if (field[x][y] == field[x - 1][y + 1] && field[x][y] == field[x + 1][y - 1]) {
-							v += field[x][y] * coefficients[1];
+							v += field[x][y] * coefficients[2];
+						}
+
+						// unfinished
+						int sum1 = field[x - 1][y - 1] + field[x][y] + field[x + 1][y + 1];
+						int sum2 = field[x + 1][y - 1] + field[x][y] + field[x - 1][y + 1];
+						if (abs(sum1) == 2) {
+							v += sum1 / 2 * coefficients[5];
+						}
+						if (abs(sum2) == 2) {
+							v += sum2 / 2 * coefficients[5];
 						}
 					}
 
@@ -96,6 +145,8 @@ int Bot::value(Board board) {
 			}
 		}
 	}
+	
+	// checking if the position is terminated
 	int num = board.getPossibleSteps().size();
 	if (num == 0)
 		v *= 10;
