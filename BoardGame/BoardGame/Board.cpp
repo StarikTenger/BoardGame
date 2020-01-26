@@ -1,13 +1,13 @@
 #include "Board.h"
 #include <iostream>
 Board::Board() {
-	fields = std::vector<std::vector<std::vector<std::vector<short int>>>>(size);
+	fields = std::vector<std::vector<std::vector<std::vector<char>>>>(size);
 	for (auto& a : fields) {
-		a = std::vector<std::vector<std::vector<short int>>>(size);
+		a = std::vector<std::vector<std::vector<char>>>(size);
 		for (auto& b : a) {
-			b = std::vector<std::vector<short int>>(size);
+			b = std::vector<std::vector<char>>(size);
 			for (auto& c : b) {
-				c = std::vector<short int>(size);
+				c = std::vector<char>(size);
 				for (auto& d : c)
 					d = 0;
 			}

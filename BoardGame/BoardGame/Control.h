@@ -41,19 +41,22 @@ public:
 	//time
 	int dt = 20;
 	int timePrev = 0;
-	bool stop = 0;
 	int iteration = 0;
-
-
+	bool stop = 0;
+	
 	Control();
 	~Control();
 
 	void events();	
 	void step();
-	Vector2d getCursorPos();
-	std::string configParametersAdress = "parameters.conf";
 	void loadConfig();
 	void saveConfig();
+
+
+
+	Vector2d getCursorPos();
+	std::string configParametersAdress = "parameters.conf";
+	
 
 	std::pair<int, int> bot();
 

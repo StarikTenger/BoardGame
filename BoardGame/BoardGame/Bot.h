@@ -7,7 +7,7 @@
 
 class Bot {
 public:
-	int limit = 6;
+	int limit = 4;
 	int type = 1;
 	int counter = 0;
 
@@ -16,7 +16,7 @@ public:
 	Bot() {};
 	std::pair<int, int> step(Board board);
 private:
-	int value(Board board);
+	int value(const Board& board);
 	int value(Board board, int iteraion, int alpha, int beta);
 };
 

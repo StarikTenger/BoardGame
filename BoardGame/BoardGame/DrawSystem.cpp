@@ -36,8 +36,8 @@ void DrawSystem::drawInterface() {
 }
 
 void DrawSystem::glowingLine(double x, double y, double size, double angle, Color color) {
-	image("rect", x, y, size * 3, 5, angle, color);
-	image("rect", x, y, size * 3, 2, angle, { 255, 255, 255 });
+	image("rect", x, y, size * 3 - 4, 3, angle, color + Color(25, 25, 25));
+	//image("rect", x, y, size * 3, 2, angle, { 255, 255, 255 });
 }
 
 void DrawSystem::draw(Board board) {
@@ -45,6 +45,9 @@ void DrawSystem::draw(Board board) {
 	w = window->getSize().x;
 	h = window->getSize().y;
 	window->setView(sf::View(sf::FloatRect(0, 0, std::min(w, h), std::min(w, h))));
+
+	Color green(0, 220, 0);
+	Color red(220, 0, 0);
 
 	fillRect(w / 2, h / 2, w, h, { 20, 20, 20 });
 
@@ -72,9 +75,9 @@ void DrawSystem::draw(Board board) {
 
 					// crosses and nulls
 					if (board.fields[i][j][x + 1][y + 1] == 1)
-						image("null", x1, y1, r*2, r*2, 0, { 255, 0, 0 });
+						image("null", x1, y1, r*2, r*2, 0, red);
 					if (board.fields[i][j][x + 1][y + 1] == -1)
-						image("cross", x1, y1, r * 2, r * 2, 0, { 0, 255, 0 });
+						image("cross", x1, y1, r * 2, r * 2, 0, green);
 				}
 			}
 		}
@@ -107,31 +110,31 @@ void DrawSystem::draw(Board board) {
 					if (x == 1) {
 						if (field[x][y] == field[x - 1][y] && field[x][y] == field[x + 1][y]) {
 							if (field[x][y] == 1)
-								glowingLine(x1, y1, size, 0, { 255, 0, 0 }), aScore++;
+								glowingLine(x1, y1, size, 0, red), aScore++;
 							if (field[x][y] == -1)
-								glowingLine(x1, y1, size, 0, { 0, 255, 0 }), bScore++;
+								glowingLine(x1, y1, size, 0, green), bScore++;
 						}
 					}
 					if (y == 1) {
 						if (field[x][y] == field[x][y - 1] && field[x][y] == field[x][y + 1]) {
 							if (field[x][y] == 1)
-								glowingLine(x1, y1, size, M_PI / 2, { 255, 0, 0 }), aScore++;
+								glowingLine(x1, y1, size, M_PI / 2, red), aScore++;
 							if (field[x][y] == -1)
-								glowingLine(x1, y1, size, M_PI / 2, { 0, 255, 0 }), bScore++;
+								glowingLine(x1, y1, size, M_PI / 2, green), bScore++;
 						}
 					}
 					if (x == 1 && y == 1) {
 						if (field[x][y] == field[x - 1][y - 1] && field[x][y] == field[x + 1][y + 1]) {
 							if (field[x][y] == 1)
-								glowingLine(x1, y1, size, M_PI / 4, { 255, 0, 0 }), aScore++;
+								glowingLine(x1, y1, size, M_PI / 4, red), aScore++;
 							if (field[x][y] == -1)
-								glowingLine(x1, y1, size, M_PI / 4, { 0, 255, 0 }), bScore++;
+								glowingLine(x1, y1, size, M_PI / 4, green), bScore++;
 						}
 						if (field[x][y] == field[x - 1][y + 1] && field[x][y] == field[x + 1][y - 1]) {
 							if (field[x][y] == 1)
-								glowingLine(x1, y1, size, -M_PI / 4, { 255, 0, 0 }), aScore++;
+								glowingLine(x1, y1, size, -M_PI / 4, red), aScore++;
 							if (field[x][y] == -1)
-								glowingLine(x1, y1, size, -M_PI / 4, { 0, 255, 0 }), bScore++;
+								glowingLine(x1, y1, size, -M_PI / 4, green), bScore++;
 						}
 					}
 					

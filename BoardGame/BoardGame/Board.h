@@ -1,10 +1,10 @@
-#pragma once
+﻿#pragma once
 #include <vector>
 
 
 class Board {
 public:
-	std::vector<std::vector<std::vector<std::vector<short int>>>> fields;
+	std::vector < std::vector < std::vector < std::vector<char>>>> fields;
 
 	std::pair<int, int> pos = {1, 1};
 	std::pair<int, int> lastStep = {-1, -1};

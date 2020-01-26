@@ -18,7 +18,7 @@ std::pair<int, int> Bot::step(Board board) {
 		auto b1 = board;
 		b1.step(s);
 		int v = value(b1, limit, -INF, INF);
-		std::cout << v << " ";
+		//std::cout << v << " ";
 		if (v > vMax) {
 			vMax = v;
 			best = s;
@@ -28,7 +28,7 @@ std::pair<int, int> Bot::step(Board board) {
 		return { 1, 1 };
 	if (best.first == -1)
 		return arr.back();
-	std::cout  << " | " << limit << " " << counter << "\n";
+	//std::cout  << " | " << limit << " " << counter << "\n";
 	if (counter < 3000)
 		limit++;
 	counter = 0;
@@ -63,7 +63,7 @@ int Bot::value(Board board, int iteration, int alpha, int beta) {
 	return vMax;
 }
 
-int Bot::value(Board board) {
+int Bot::value(const Board& board) {
 	int v = 0;
 	int n = board.size;
 
@@ -147,7 +147,15 @@ int Bot::value(Board board) {
 	}
 	
 	// checking if the position is terminated
-	int num = board.getPossibleSteps().size();
+	int num = 0;
+	const auto& field = board.fields[board.pos.first][board.pos.second];
+	for (int x = 0; x < board.size; x++) {
+		for (int y = 0; y < board.size; y++) {
+			if (field[x][y] == 0)
+				num++;
+		}
+	}
+
 	if (num == 0)
 		v *= 10;
 
