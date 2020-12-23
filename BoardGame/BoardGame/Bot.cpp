@@ -6,6 +6,8 @@
 
 
 std::pair<int, int> Bot::step(Board board) {
+	counter = 0;
+	isPositionTerminate = 0;
 	auto arr = board.getPossibleSteps();
 	std::pair<int, int> best = { -1, -1 };
 	int vMax = -INF;
@@ -17,7 +19,7 @@ std::pair<int, int> Bot::step(Board board) {
 	for (auto s : arr) {
 		auto b1 = board;
 		b1.step(s);
-		int v = value(b1, limit, -INF, INF);
+		int v = value(b1, depth, -INF, INF);
 		//std::cout << v << " ";
 		if (v > vMax) {
 			vMax = v;
@@ -28,10 +30,14 @@ std::pair<int, int> Bot::step(Board board) {
 		return { 1, 1 };
 	if (best.first == -1)
 		return arr.back();
-	//std::cout  << " | " << limit << " " << counter << "\n";
-	if (counter < 3000)
-		limit++;
-	counter = 0;
+	
+	std::cout << " | " << depth << " " << counter << "\n";
+	if (counter < threshold && !isPositionTerminate && depth < depthLimit) {
+		depth++;
+		depth = std::min(depth, depthLimit);
+		return step(board);
+	}
+	depth = 1;
 	return best;
 }
 
@@ -53,12 +59,12 @@ int Bot::value(Board board, int iteration, int alpha, int beta) {
 		vMax = std::max(vMax, v);
 		
 		
-		if (iteration % 2 == limit % 2 && v <= alpha)
+		if (iteration % 2 == depth % 2 && v <= alpha)
 			break;
-		if (iteration % 2 != limit % 2 && v >= beta)
+		if (iteration % 2 != depth % 2 && v >= beta)
 			break;
 	}
-	if (iteration % 2 == limit % 2)
+	if (iteration % 2 == depth % 2)
 		return vMin;
 	return vMax;
 }
@@ -156,8 +162,10 @@ int Bot::value(const Board& board) {
 		}
 	}
 
-	if (num == 0)
+	if (num == 0) {
+		isPositionTerminate = 1;
 		v *= 10;
+	}
 
 	return v*type;
 }

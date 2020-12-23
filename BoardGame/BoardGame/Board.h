@@ -1,7 +1,6 @@
 ﻿#pragma once
 #include <vector>
 
-
 class Board {
 public:
 	std::vector < std::vector < std::vector < std::vector<char>>>> fields;

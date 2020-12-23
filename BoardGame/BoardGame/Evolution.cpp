@@ -19,10 +19,12 @@ void Evolution::iteration() {
 
 std::vector<int> Evolution::mutate(std::vector<int> genome) {
 	for (auto& g : genome) {
-		if (random::intRandom(0, 2))
+		if (random::intRandom(0, 1))
 			continue;
 		g += random::intRandom(-5, 5);
 	}
+	genome[1] = genome[2] = genome[0];
+	genome[5] = genome[4] = genome[3];
 	return genome;
 }
 

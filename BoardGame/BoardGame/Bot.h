@@ -7,12 +7,15 @@
 
 class Bot {
 public:
-	int limit = 4;
+	int depth = 1;
+	int depthLimit = 100;
+	int threshold = 1000;
 	int type = 1;
 	int counter = 0;
+	int isPositionTerminate = 0;
 
 	std::vector<int> coefficients = { 10, 10 , 10 , 1 , 1 , 1 };
-
+	
 	Bot() {};
 	std::pair<int, int> step(Board board);
 private:

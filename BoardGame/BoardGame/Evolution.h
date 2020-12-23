@@ -6,7 +6,7 @@
 
 class Evolution {
 public:
-	int compIterations = 50;
+	int compIterations = 5;
 	int generations = 500;
 	int generationNumber = 0;
 

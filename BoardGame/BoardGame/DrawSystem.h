@@ -17,7 +17,6 @@ public:
 
 	std::pair<int, int> pos = {-1, -1};
 
-
 	void draw(Board board);
 	void drawScene();
 	void drawInterface();

@@ -5,16 +5,18 @@
 int main(int, char**){
 	random::start();
 	
+	// This code is for game
 	Control control;
 	while (!control.stop) {
 		control.step();
 	}
 
-	/*Evolution ev;
-	std::cout << ev.comp(
-		{ 1000, 1010, 1020, 10, 11 ,12 },
-		{100, 100, 100, 10, 10, 10 }
-	);
-	ev.generate();*/
+	// This code is for evolution
+	//Evolution ev;
+	/*std::cout << ev.comp(
+		{80, 80, 80, 10, 10 ,10 },
+		{100,  100,  100,  10, 10, 10 }
+	);*/
+	//ev.generate();
 	return 0;
 }

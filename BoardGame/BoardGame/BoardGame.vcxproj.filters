@@ -107,6 +107,9 @@
     <ClInclude Include="Evolution.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="configProcessing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BoardGame.rc">
@@ -123,5 +126,10 @@
     <Image Include="textures\icon.ico">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="config.conf">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

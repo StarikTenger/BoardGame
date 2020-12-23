@@ -1,5 +1,6 @@
 #include "Control.h"
 #include "getMilliCount.h"
+#include "configProcessing.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -24,7 +25,7 @@ Control::Control() {
 	}
 	steps.push_back(board);
 
-	
+	loadConfig();
 }
 
 Control::~Control() {
@@ -36,7 +37,23 @@ Vector2d Control::getCursorPos() {
 }
 
 void Control::loadConfig() {
-	
+	std::ifstream configFile("config.conf");
+	auto config = configProcessing::comment(configFile);
+	std::string command;
+	while (config >> command) {
+		if (command == "END")
+			break;
+		if (command == "DEPTH_LIMIT") {
+			int num;
+			config >> num;
+			robot.depthLimit = num;
+		}
+		if (command == "THRESHOLD") {
+			int num;
+			config >> num;
+			robot.threshold = num;
+		}
+	}
 }
 
 
